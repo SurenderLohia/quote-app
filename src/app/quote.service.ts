@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-const url = 'https://dev-quote.herokuapp.com/api/quotes';
-const localUrl = 'https:/local/api/quotes';
+import {  throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+import { Quote } from './quote';
+
+import {Observable} from 'rxjs/Rx';
+
+const quoteApiUrl = 'https://dev-quote.herokuapp.com/api/quotes';
+const quoteApiLocalUrl = 'https:/local/api/quotes';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +17,44 @@ const localUrl = 'https:/local/api/quotes';
 export class QuoteService {
   quotes = [];
   constructor(
-    private http: HttpClient
+    private httpClient: HttpClient
   ) { 
-    this.quotes = this.quotes.concat(this.http.get('https://dev-quote.herokuapp.com/api/quotes'));
+    
   }
 
-  fetchQuotes() {
-    return this.http.get('https://dev-quote.herokuapp.com/api/quotes');
-  }
-
-  getQuotes() {
-    return this.quotes;
-  }
-
-  addQuoteApiCall(newQuote) {
-    return this.http.post(url, newQuote);
+  setQuotes(quotes) {
+    this.quotes = quotes;
   }
 
   addQuote(quote) {
+    console.log('adding quote');
     this.quotes.push(quote);
   }
+
+  addQuoteApiCall(quote): Observable<Quote> {
+    return this.httpClient.post<Quote>(quoteApiUrl, quote)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  getAllQuotes(): Observable<Quote[]> {
+    return this.httpClient.get<Quote[]>(quoteApiUrl)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  errorHandler(error) {
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+ }
 }
