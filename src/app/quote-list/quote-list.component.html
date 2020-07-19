@@ -1,0 +1,6 @@
+<div class="quote-item" *ngFor="let quote of quotes | async">
+  <p>
+    {{ quote.quote }}
+  </p>
+  <span class="sec-text">- {{quote.name}}</span>
+</div>
