@@ -11,7 +11,9 @@ export class QuoteService {
   quotes = [];
   constructor(
     private http: HttpClient
-  ) { }
+  ) { 
+    this.quotes = this.quotes.concat(this.http.get('https://dev-quote.herokuapp.com/api/quotes'));
+  }
 
   fetchQuotes() {
     return this.http.get('https://dev-quote.herokuapp.com/api/quotes');
@@ -19,5 +21,13 @@ export class QuoteService {
 
   getQuotes() {
     return this.quotes;
+  }
+
+  addQuoteApiCall(newQuote) {
+    return this.http.post(url, newQuote);
+  }
+
+  addQuote(quote) {
+    this.quotes.push(quote);
   }
 }
