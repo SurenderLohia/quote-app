@@ -1,9 +1,15 @@
 <div *ngIf="quotes.length">
-  <div class="quote-item" *ngFor="let quote of quotes">
-    <p>
-      {{ quote.quote }}
-    </p>
-    <span class="sec-text">- {{quote.author ? quote.author : 'Anonymous'}}</span>
+  <div
+    [@listAnimation]="quotes.length"
+  >
+    <div class="quote-item" *ngFor="let quote of quotes">
+      <p>
+        {{ quote.quote }}
+      </p>
+      <span class="sec-text"
+        >- {{ quote.author ? quote.author : "Anonymous" }}</span
+      >
+    </div>
   </div>
 </div>
 <div *ngIf="!quotes.length">
