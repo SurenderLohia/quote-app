@@ -1,7 +1,8 @@
 <style>
   :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
     color: #333;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -13,10 +14,6 @@
   }
 
   .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     height: 60px;
     display: flex;
     align-items: center;
@@ -38,13 +35,13 @@
     opacity: 0.8;
   }
 
-  .content {
+  /* .content {
     display: flex;
     margin: 82px auto 32px;
     padding: 0 16px;
     max-width: 800px;
     flex-direction: column;
-  }
+  } */
 
   svg.material-icons {
     height: 24px;
@@ -104,18 +101,19 @@
     align-items: center;
     font-size: 12px;
     padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
+    border: 1px solid rgba(27, 31, 35, 0.2);
     border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
     margin-left: 4px;
     font-weight: 600;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+      sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   }
 
   .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
+    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+    border-color: rgba(27, 31, 35, 0.35);
+    background-position: -0.5em;
   }
 
   .github-star-badge .material-icons {
@@ -132,11 +130,9 @@
     width: 1920px;
   }
 
-
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
-
-    .card-container > *:not(.circle-link) ,
+    .card-container > *:not(.circle-link),
     .terminal {
       width: 100%;
     }
@@ -165,17 +161,37 @@
 </style>
 
 <!-- Toolbar -->
-<div class="toolbar justify-center" role="banner">
-  <div class="flex align-center">
+<div class="toolbar" role="banner">
+  <div class="wrap flex-auto">
     <h1 class="bor-title">Dude Quotes</h1>
-      <div class="spacer"></div>
   </div>
 </div>
 
-<div class="content" role="main">
+<div class="wrap main-content" role="main">
   <app-add-quote></app-add-quote>
   <h2 class="title">Quotes</h2>
   <app-quote-list></app-quote-list>
 </div>
 
 <router-outlet></router-outlet>
+
+<div class="footer">
+  <div class="wrap clearfix">
+    <p class="secondary-text-color">
+      Made with
+      <span class="love">♥</span>
+      by
+      <a href="https://www.surender.net/">Surender Lohia</a>
+      under
+      <a href="https://surender.mit-license.org/">MIT licence</a>
+      &nbsp;
+      <a
+        class="stack-share"
+        href="https://stackshare.io/SurenderLohia/dude-quotes"
+        ><img
+          src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat"
+          alt="StackShare"
+      /></a>
+    </p>
+  </div>
+</div>
