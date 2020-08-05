@@ -9,7 +9,7 @@ import { Quote } from './quote';
 import {Observable} from 'rxjs/Rx';
 
 const quoteApiUrl = 'https://dev-quote.herokuapp.com/api/quotes';
-const quoteApiLocalUrl = 'https:/local/api/quotes';
+const quoteApiLocalUrl = 'http://localhost:3000/api/quotes';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class QuoteService {
 
   addQuote(quote) {
     console.log('adding quote');
-    this.quotes.push(quote);
+    this.quotes.unshift(quote);
   }
 
   addQuoteApiCall(quote): Observable<Quote> {

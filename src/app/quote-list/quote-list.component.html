@@ -3,7 +3,7 @@
     <p>
       {{ quote.quote }}
     </p>
-    <span class="sec-text">- {{quote.name}}</span>
+    <span class="sec-text">- {{quote.author ? quote.author : 'Anonymous'}}</span>
   </div>
 </div>
 <div *ngIf="!quotes.length">

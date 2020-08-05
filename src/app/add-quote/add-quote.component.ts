@@ -18,7 +18,7 @@ export class AddQuoteComponent implements OnInit {
 
   ngOnInit() {
     this.addQuoteForm = this.formBuilder.group({
-      name: '',
+      author: '',
       quote: ''
     });
   }
