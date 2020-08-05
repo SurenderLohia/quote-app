@@ -15,6 +15,6 @@
         ><span class="bar"></span><label>Quote</label>
       </div>
     </div>
-    <button class="btn btn-submit" type="submit">submit</button>
+    <button class="btn btn-submit" type="submit" [disabled]="!addQuoteForm.value.quote">Submit</button>
   </form>
 </div>

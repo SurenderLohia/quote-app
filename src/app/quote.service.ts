@@ -28,7 +28,9 @@ export class QuoteService {
 
   addQuote(quote) {
     console.log('adding quote');
-    this.quotes.unshift(quote);
+    if(quote.quote) {
+      this.quotes.unshift(quote);
+    }
   }
 
   addQuoteApiCall(quote): Observable<Quote> {

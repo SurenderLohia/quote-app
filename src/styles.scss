@@ -185,6 +185,11 @@ form {
   margin-bottom: 45px;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 // INPUTS // ============================== //
 textarea {
   resize: none;
