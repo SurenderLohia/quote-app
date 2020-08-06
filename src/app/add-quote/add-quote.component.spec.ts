@@ -1,28 +1,32 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+// /* tslint:disable:no-unused-variable */
+// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+// import { By } from '@angular/platform-browser';
+// import { DebugElement } from '@angular/core';
+// import { FormBuilder } from '@angular/forms';
 
-import { AddQuoteComponent } from './add-quote.component';
+// import { QuoteService } from '../quote.service';
 
-describe('AddQuoteComponent', () => {
-  let component: AddQuoteComponent;
-  let fixture: ComponentFixture<AddQuoteComponent>;
+// import { AddQuoteComponent } from './add-quote.component';
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AddQuoteComponent ]
-    })
-    .compileComponents();
-  }));
+// describe('AddQuoteComponent', () => {
+//   let component: AddQuoteComponent;
+//   let fixture: ComponentFixture<AddQuoteComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AddQuoteComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       imports: [FormBuilder],
+//       declarations: [ AddQuoteComponent ]
+//     })
+//     .compileComponents();
+//   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(AddQuoteComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
+
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
