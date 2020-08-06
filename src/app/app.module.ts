@@ -22,7 +22,7 @@ import { LoaderComponent } from './loader/loader.component';
       AppRoutingModule,
       HttpClientModule,
       ReactiveFormsModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
    ],
    providers: [],
    bootstrap: [
